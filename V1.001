@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conseil Générateur</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+  <script src="sketch.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+</body>
+</html>
+
+let conseils = [
+  "Écoute et empathie : Utilisez vos compétences pour mieux comprendre les besoins, les préoccupations et les émotions des autres.",
+  "Médiation et résolution de conflits : Votre capacité à comprendre les perspectives des autres peut vous aider à jouer un rôle de médiateur dans des situations de conflit.",
+  "Soutien émotionnel : Vous pourriez utiliser votre don pour offrir un soutien émotionnel aux personnes en détresse.",
+  "Carrière dans le conseil ou la thérapie : Envisagez de poursuivre une carrière en tant que conseiller, psychologue ou thérapeute.",
+  "Enseignement et formation : Vous pourriez enseigner aux autres comment développer leur empathie et leurs compétences en communication."
+];
+
+let conseil = "";
+let indexConseil;
+let couleurForme;
+let forme;
+
+function setup() {
+  createCanvas(800, 600);
+  textAlign(CENTER, CENTER);
+  textSize(20);
+
+  let button = createButton("Générer un conseil");
+  button.position(width / 2 - 50, height / 2 - 150);
+  button.mousePressed(genererConseil);
+}
+
+function draw() {
+  background(255);
+  fill(0);
+  text(conseil, width / 2, height - 50);
+
+  if (forme) {
+    fill(couleurForme);
+    if (forme === 1) {
+      ellipse(width / 2, height / 2, 100, 100);
+    } else if (forme === 2) {
+      rectMode(CENTER);
+      rect(width / 2, height / 2, 
 
