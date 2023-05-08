@@ -60,5 +60,22 @@ function draw() {
       ellipse(width / 2, height / 2, 100, 100);
     } else if (forme === 2) {
       rectMode(CENTER);
-      rect(width / 2, height / 2, 
+      rect(width / 2, height / 2,       100, 100);
+    } else if (forme === 3) {
+      triangle(width / 2 - 50, height / 2 + 50, width / 2, height / 2 - 50, width / 2 + 50, height / 2 + 50);
+    }
+  }
+}
+
+function genererConseil() {
+  indexConseil = floor(random(conseils.length));
+  conseil = conseils[indexConseil];
+
+  // Générer une couleur aléatoire
+  couleurForme = color(random(255), random(255), random(255));
+
+  // Générer une forme aléatoire (1 = ellipse, 2 = rectangle, 3 = triangle)
+  forme = floor(random(1, 4));
+}
+
 
